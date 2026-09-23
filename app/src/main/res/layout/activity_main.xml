@@ -97,6 +97,7 @@
         app:layout_constraintEnd_toEndOf="parent">
         <!-- Login button -->
         <LinearLayout
+            android:id="@+id/loginButton"
             android:layout_width="match_parent"
             android:layout_height="52dp"
             android:orientation="horizontal"
@@ -125,6 +126,7 @@
 
         <!-- Register button -->
         <LinearLayout
+            android:id="@+id/registerButton"
             android:layout_width="match_parent"
             android:layout_height="52dp"
             android:layout_marginTop="12dp"
