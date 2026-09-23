@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -20,36 +19,32 @@
         android:layout_height="match_parent"
         android:background="#33000000" />
 
-    <!-- Logo + Hero Section -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="center"
-        android:layout_marginTop="50dp">
-
-        <ImageView
-            android:layout_width="@dimen/logo_height"
-            android:layout_height="@dimen/logo_width"
-            android:src="@drawable/logo"
-            android:contentDescription="Solar Grid logo" />
-    </LinearLayout>
-
-    <!-- Login content -->
+    <!-- Everything scrolls together: logo + card -->
     <ScrollView
         android:id="@+id/loginScrollView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        >
+        android:layout_height="match_parent"
+        android:fillViewport="true">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:gravity="bottom|center_horizontal"
-            android:padding="24dp"
-           >
+            android:gravity="center_horizontal"
+            android:padding="24dp">
+
+            <!-- Logo -->
+            <ImageView
+                android:layout_width="@dimen/logo_height"
+                android:layout_height="@dimen/logo_width"
+                android:layout_marginTop="30dp"
+                android:src="@drawable/logo"
+                android:contentDescription="Solar Grid logo" />
+
+            <!-- Space between logo and card -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="30dp" />
 
             <!-- Login Card -->
             <LinearLayout
@@ -58,7 +53,8 @@
                 android:orientation="vertical"
                 android:padding="24dp"
                 android:background="@drawable/bg_login_card">
-                <!-- card heading-->
+
+                <!-- Card heading -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -90,6 +86,7 @@
                     android:textColor="@android:color/white"
                     android:textSize="14sp"
                     android:textStyle="bold" />
+
                 <EditText
                     android:id="@+id/nicInput"
                     android:layout_width="match_parent"
@@ -124,7 +121,8 @@
                     android:paddingStart="16dp"
                     android:paddingEnd="16dp"
                     android:background="@drawable/bg_input" />
-                <!--login buton-->
+
+                <!-- Login button -->
                 <LinearLayout
                     android:id="@+id/loginSubmitButton"
                     android:layout_width="match_parent"
@@ -152,6 +150,36 @@
                         android:contentDescription="Login" />
 
                 </LinearLayout>
+
+                <!-- Register link -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Don't have an account?"
+                        android:textColor="@color/white"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/registerLink"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="6dp"
+                        android:text="Register"
+                        android:textColor="#F2C300"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:clickable="true"
+                        android:focusable="true" />
+
+                </LinearLayout>
+
             </LinearLayout>
 
         </LinearLayout>
