@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.MotionEvent
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
+import android.widget.LinearLayout
 import android.widget.ScrollView
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
@@ -40,6 +41,13 @@ class LoginActivity : AppCompatActivity() {
 
         register.setOnClickListener {
             val intent = Intent(this, RegisterActivity::class.java)
+            startActivity(intent)
+        }
+        // login page link
+        val login = findViewById<LinearLayout>(R.id.loginSubmitButton)
+
+        login.setOnClickListener {
+            val intent = Intent(this, ProcumerDashboard::class.java)
             startActivity(intent)
         }
     }
