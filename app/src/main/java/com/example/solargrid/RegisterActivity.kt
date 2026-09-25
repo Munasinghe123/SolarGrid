@@ -33,8 +33,8 @@ class RegisterActivity : AppCompatActivity() {
             insets
         }
 
+//        login form link
         val loginLink = findViewById<TextView>(R.id.loginLink)
-
         loginLink.setOnClickListener {
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)

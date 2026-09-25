@@ -12,13 +12,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SolarGrid">
         <activity
+            android:name=".ProcumerDashboard"
+            android:exported="false" />
+        <activity
             android:name=".RegisterActivity"
             android:exported="false"
-            android:windowSoftInputMode="adjustResize"/>
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".LoginActivity"
             android:exported="false"
-            android:windowSoftInputMode="adjustResize"/>
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
