@@ -6,4 +6,9 @@
     </style>
 
     <style name="Theme.SolarGrid" parent="Base.Theme.SolarGrid" />
+
+    <style name="App.BottomNav.NoIndicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
+        <item name="android:color">@android:color/transparent</item>
+    </style>
+
 </resources>
