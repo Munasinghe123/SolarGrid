@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.LinearLayout
 import androidx.fragment.app.Fragment
 
 class HomeFragment : Fragment() {
@@ -25,7 +24,7 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val bookEnergyButton =
-            view.findViewById<LinearLayout>(R.id.bookEnergyButton)
+            view.findViewById<View>(R.id.bookEnergyButton)
 
         bookEnergyButton.setOnClickListener {
             val intent = Intent(

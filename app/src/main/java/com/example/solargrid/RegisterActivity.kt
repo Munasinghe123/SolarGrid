@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.MotionEvent
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
+import android.widget.LinearLayout
 import android.widget.ScrollView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -31,6 +32,37 @@ class RegisterActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, 0)
             scrollView.setPadding(0, 0, 0, maxOf(ime.bottom, systemBars.bottom))
             insets
+        }
+
+        val registerSubmitButton = findViewById<LinearLayout>(R.id.registerSubmitButton)
+        val nameInput = findViewById<EditText>(R.id.nameInput)
+        val nicInput = findViewById<EditText>(R.id.nicInput)
+        val passwordInput = findViewById<EditText>(R.id.passwordInput)
+        val confirmPasswordInput = findViewById<EditText>(R.id.confirmPasswordInput)
+
+        registerSubmitButton.setOnClickListener {
+            val name = nameInput.text.toString().trim()
+            val nic = nicInput.text.toString().trim()
+            val password = passwordInput.text.toString()
+            val confirmPassword = confirmPasswordInput.text.toString()
+
+            if (name.isEmpty() || nic.isEmpty() || password.isEmpty()) {
+                android.widget.Toast.makeText(this, "Please fill in all fields", android.widget.Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            if (password != confirmPassword) {
+                android.widget.Toast.makeText(this, "Passwords do not match", android.widget.Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            val newUser = User(nic = nic, password = password, role = Role.PROSUMER, name = name)
+            UserRepository.registerUser(newUser)
+
+            android.widget.Toast.makeText(this, "Registration successful! Please login.", android.widget.Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, LoginActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            startActivity(intent)
         }
 
 //        login form link

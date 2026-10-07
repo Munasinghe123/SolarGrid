@@ -45,10 +45,49 @@ class LoginActivity : AppCompatActivity() {
         }
         // login page link
         val login = findViewById<LinearLayout>(R.id.loginSubmitButton)
+        val nicInput = findViewById<EditText>(R.id.nicInput)
+        val passwordInput = findViewById<EditText>(R.id.passwordInput)
+        val togglePassword = findViewById<TextView>(R.id.togglePassword)
+        var isPasswordVisible = false
+
+        togglePassword.setOnClickListener {
+            isPasswordVisible = !isPasswordVisible
+            val selection = passwordInput.selectionEnd
+            if (isPasswordVisible) {
+                passwordInput.transformationMethod = android.text.method.HideReturnsTransformationMethod.getInstance()
+                togglePassword.text = "Hide"
+            } else {
+                passwordInput.transformationMethod = android.text.method.PasswordTransformationMethod.getInstance()
+                togglePassword.text = "Show"
+            }
+            passwordInput.setSelection(selection.coerceIn(0, passwordInput.text?.length ?: 0))
+        }
 
         login.setOnClickListener {
-            val intent = Intent(this, ProcumerDashboard::class.java)
-            startActivity(intent)
+            val nic = nicInput.text.toString().trim()
+            val password = passwordInput.text.toString()
+
+            if (nic.isEmpty() || password.isEmpty()) {
+                android.widget.Toast.makeText(this, "Please enter NIC and password", android.widget.Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            val user = UserRepository.authenticate(nic, password)
+            if (user != null) {
+                val intent = when (user.role) {
+                    Role.PROSUMER -> Intent(this, ProcumerDashboard::class.java)
+                    Role.GRID_OPERATOR -> Intent(this, GridOperatorDashboard::class.java)
+                }
+                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                startActivity(intent)
+                finish()
+            } else {
+                android.widget.Toast.makeText(
+                    this,
+                    "Invalid credentials. Try Prosumer: 111111111V or Operator: 222222222V (Pass: password123)",
+                    android.widget.Toast.LENGTH_LONG
+                ).show()
+            }
         }
     }
 

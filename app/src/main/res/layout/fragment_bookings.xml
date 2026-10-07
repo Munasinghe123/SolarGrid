@@ -32,7 +32,7 @@
             <FrameLayout
                 android:id="@+id/dashboardHeader"
                 android:layout_width="match_parent"
-                android:layout_height="125dp"
+                android:layout_height="100dp"
                 android:background="@drawable/bg_header"
                 android:clipToOutline="true">
 

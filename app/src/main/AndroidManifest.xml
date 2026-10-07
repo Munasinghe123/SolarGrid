@@ -25,6 +25,9 @@
             android:name=".ProcumerDashboard"
             android:exported="false" />
         <activity
+            android:name=".GridOperatorDashboard"
+            android:exported="false" />
+        <activity
             android:name=".RegisterActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />

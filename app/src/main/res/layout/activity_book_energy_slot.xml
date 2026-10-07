@@ -26,7 +26,7 @@
     <FrameLayout
         android:id="@+id/dashboardHeader"
         android:layout_width="0dp"
-        android:layout_height="125dp"
+        android:layout_height="100dp"
         android:background="@drawable/bg_header"
         android:clipToOutline="true"
         app:layout_constraintTop_toTopOf="parent"
@@ -135,7 +135,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="Reservation&#10;Details"
-                android:textColor="#FFFFFF"
+                android:textColor="#F6C119"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 android:lineSpacingExtra="-2dp" />
