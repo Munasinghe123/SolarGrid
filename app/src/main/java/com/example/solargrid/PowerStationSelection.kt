@@ -26,8 +26,9 @@ import org.maplibre.android.maps.MapLibreMap
 import org.maplibre.android.maps.MapView
 import org.maplibre.android.maps.Style
 import android.app.Dialog
+import android.view.Gravity
+import android.view.View
 import android.view.WindowManager
-import android.widget.Button
 
 class PowerStationSelection : AppCompatActivity() {
 
@@ -123,7 +124,7 @@ class PowerStationSelection : AppCompatActivity() {
                     dialog.findViewById<TextView>(R.id.stationDistance)
 
                 val continueButton =
-                    dialog.findViewById<Button>(R.id.continueButton)
+                    dialog.findViewById<View>(R.id.continueButton)
 
                 stationTitle.text = marker.title
                 stationDistance.text = marker.snippet
@@ -145,13 +146,17 @@ class PowerStationSelection : AppCompatActivity() {
                     dialog.dismiss()
                 }
 
-                dialog.window?.setBackgroundDrawableResource(
+                dialog.show()
+
+                val window = dialog.window
+
+                window?.setBackgroundDrawableResource(
                     android.R.color.transparent
                 )
 
-                dialog.show()
+                window?.setGravity(Gravity.CENTER)
 
-                dialog.window?.setLayout(
+                window?.setLayout(
                     dpToPx(300),
                     WindowManager.LayoutParams.WRAP_CONTENT
                 )
