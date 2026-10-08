@@ -33,7 +33,15 @@ class ProfileFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         view.findViewById<ImageView>(R.id.backButton)?.setOnClickListener {
-            findNavController().navigate(R.id.nav_home)
+            if (!findNavController().popBackStack()) {
+                try {
+                    findNavController().navigate(R.id.nav_home)
+                } catch (_: Exception) {
+                    try {
+                        findNavController().navigate(R.id.nav_grid_operator_home)
+                    } catch (_: Exception) {}
+                }
+            }
         }
 
         // Edit Profile Modal

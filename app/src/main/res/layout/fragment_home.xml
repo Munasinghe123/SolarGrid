@@ -36,7 +36,7 @@
             <FrameLayout
                 android:id="@+id/dashboardHeader"
                 android:layout_width="match_parent"
-                android:layout_height="125dp"
+                android:layout_height="110dp"
                 android:background="@drawable/bg_header"
                 android:clipToOutline="true">
 
@@ -46,7 +46,7 @@
                     android:layout_width="70dp"
                     android:layout_height="70dp"
                     android:layout_marginStart="18dp"
-                    android:layout_marginTop="40dp"
+                    android:layout_marginTop="30dp"
                     android:padding="7dp"
                     android:src="@drawable/user"
                     android:contentDescription="Profile" />
@@ -56,7 +56,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="100dp"
-                    android:layout_marginTop="48dp"
+                    android:layout_marginTop="38dp"
                     android:orientation="vertical">
 
                 <LinearLayout
@@ -97,7 +97,7 @@
                     android:layout_width="44dp"
                     android:layout_height="44dp"
                     android:layout_gravity="end"
-                    android:layout_marginTop="48dp"
+                    android:layout_marginTop="30dp"
                     android:layout_marginEnd="14dp"
                     android:background="@android:color/transparent"
                     android:padding="8dp"
@@ -155,7 +155,7 @@
                     <!-- Yellow divider -->
                     <View
                         android:layout_width="50dp"
-                        android:layout_height="2dp"
+                        android:layout_height="3dp"
                         android:layout_marginStart="16dp"
                         android:layout_marginTop="5dp"
                         android:background="#F6D400" />
@@ -241,16 +241,7 @@
                         android:textSize="15sp"
                         android:textStyle="bold" />
 
-                    <TextView
-                        android:id="@+id/viewAllReservations"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="View All"
-                        android:textColor="@android:color/white"
-                        android:textSize="13sp"
-                        android:textStyle="bold"
-                        android:clickable="true"
-                        android:focusable="true" />
+
 
                 </LinearLayout>
 
@@ -259,33 +250,153 @@
                 <!-- RESERVATION PREVIEW CARDS -->
                 <!-- ========================= -->
 
+                <!-- ========================= -->
+                <!-- RESERVATION PREVIEW CARDS -->
+                <!-- ========================= -->
+
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="115dp"
+                    android:layout_height="88dp"
                     android:layout_marginStart="6dp"
-                    android:layout_marginTop="14dp"
+                    android:layout_marginTop="10dp"
                     android:layout_marginEnd="6dp"
+                    android:baselineAligned="false"
                     android:orientation="horizontal">
 
-                    <!-- Reservation Preview 1 -->
+                    <!-- ============================= -->
+                    <!-- ACTIVE RESERVATIONS CARD -->
+                    <!-- ============================= -->
+
                     <FrameLayout
                         android:id="@+id/reservationCardOne"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:layout_marginEnd="8dp"
+                        android:layout_marginEnd="6dp"
                         android:background="@drawable/bg_login_card"
-                        android:clipToOutline="true" />
+                        android:clipToOutline="true">
 
-                    <!-- Reservation Preview 2 -->
+                        <!-- Background Image -->
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:scaleType="centerCrop"
+                            android:alpha="0.32"
+                            android:src="@drawable/active"
+                            android:contentDescription="@null" />
+
+                        <!-- Subtle dark/white scrim for readability -->
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="#30000000" />
+
+                        <!-- Content -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:padding="12dp"
+                            android:gravity="center">
+
+                            <!-- Count -->
+                            <TextView
+                                android:id="@+id/activeCountText"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="3"
+                                android:textColor="#F6C119"
+                                android:textSize="32sp"
+                                android:textStyle="bold"
+                                android:fontFamily="sans"
+                                android:includeFontPadding="false" />
+
+                            <!-- Label -->
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:gravity="center"
+                                android:text="ACTIVE RESERVATIONS"
+                                android:textColor="#EAF7EE"
+                                android:textSize="10sp"
+                                android:textStyle="bold"
+                                android:fontFamily="sans"
+                                android:letterSpacing="0.08"
+                                android:includeFontPadding="false" />
+
+                        </LinearLayout>
+
+                    </FrameLayout>
+
+
+                    <!-- ============================= -->
+                    <!-- PENDING RESERVATIONS CARD -->
+                    <!-- ============================= -->
+
                     <FrameLayout
                         android:id="@+id/reservationCardTwo"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:layout_marginStart="8dp"
+                        android:layout_marginStart="6dp"
                         android:background="@drawable/bg_login_card"
-                        android:clipToOutline="true" />
+                        android:clipToOutline="true">
+
+                        <!-- Background Image -->
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:scaleType="centerCrop"
+                            android:alpha="0.32"
+                            android:src="@drawable/pending"
+                            android:contentDescription="@null" />
+
+                        <!-- Subtle scrim -->
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="#30000000" />
+
+                        <!-- Content -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:padding="12dp"
+                            android:gravity="center">
+
+                            <!-- Count -->
+                            <TextView
+                                android:id="@+id/pendingCountText"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="1"
+                                android:textColor="#F6C119"
+                                android:textSize="32sp"
+                                android:textStyle="bold"
+                                android:fontFamily="sans"
+                                android:includeFontPadding="false" />
+
+                            <!-- Label -->
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:gravity="center"
+                                android:text="PENDING RESERVATIONS"
+                                android:textColor="#FFF4DF"
+                                android:textSize="10sp"
+                                android:textStyle="bold"
+                                android:fontFamily="sans"
+                                android:letterSpacing="0.08"
+                                android:includeFontPadding="false" />
+
+                        </LinearLayout>
+
+                    </FrameLayout>
 
                 </LinearLayout>
 
