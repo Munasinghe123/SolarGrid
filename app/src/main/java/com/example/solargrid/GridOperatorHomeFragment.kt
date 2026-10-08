@@ -60,7 +60,8 @@ class GridOperatorHomeFragment : Fragment() {
             setCameraId(0)
             setBeepEnabled(true)
             setBarcodeImageEnabled(false)
-            setOrientationLocked(false)
+            setOrientationLocked(true)
+            setCaptureActivity(CaptureActivityPortrait::class.java)
         }
         qrScannerLauncher.launch(options)
     }
