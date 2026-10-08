@@ -82,9 +82,50 @@ class BookEnergySlot : AppCompatActivity() {
 
         // Book Energy Slot Button
         findViewById<android.view.View>(R.id.bookEnergySlotButton).setOnClickListener {
-            Toast.makeText(this, "Energy slot successfully booked!", Toast.LENGTH_LONG).show()
-            startActivity(Intent(this, ProcumerDashboard::class.java))
-            finish()
+            // Simulated backend API response token
+            val qrPayloadToken = "SOLAR-TX-A1B2C3D4E5F6"
+
+            // Generate QR Code bitmap from token
+            val qrBitmap = QrCodeGenerator.generateQrCode(qrPayloadToken)
+
+            // Show QR Code Dialog
+            val dialog = android.app.Dialog(this)
+            dialog.setContentView(R.layout.dialog_qr_code)
+            dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
+            dialog.window?.setGravity(android.view.Gravity.CENTER)
+
+            val qrImageView = dialog.findViewById<ImageView>(R.id.qrImageView)
+            val tokenText = dialog.findViewById<TextView>(R.id.tokenText)
+            val downloadBtn = dialog.findViewById<android.view.View>(R.id.downloadQrButton)
+            val doneBtn = dialog.findViewById<TextView>(R.id.doneButton)
+
+            tokenText.text = qrPayloadToken
+            if (qrBitmap != null) {
+                qrImageView.setImageBitmap(qrBitmap)
+            }
+
+            downloadBtn.setOnClickListener {
+                if (qrBitmap != null) {
+                    val success = QrCodeGenerator.saveQrToGallery(this, qrBitmap, qrPayloadToken)
+                    if (success) {
+                        Toast.makeText(this, "QR Code saved to Pictures gallery!", Toast.LENGTH_LONG).show()
+                    } else {
+                        Toast.makeText(this, "Failed to save QR Code", Toast.LENGTH_SHORT).show()
+                    }
+                }
+            }
+
+            doneBtn.setOnClickListener {
+                dialog.dismiss()
+                startActivity(Intent(this, ProcumerDashboard::class.java))
+                finish()
+            }
+
+            dialog.show()
+            dialog.window?.setLayout(
+                (320 * resources.displayMetrics.density).toInt(),
+                android.view.WindowManager.LayoutParams.WRAP_CONTENT
+            )
         }
     }
 }

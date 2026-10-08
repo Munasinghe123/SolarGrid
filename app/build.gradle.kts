@@ -50,4 +50,6 @@ dependencies {
     implementation("androidx.navigation:navigation-ui-ktx:2.8.9")
     implementation("com.google.android.gms:play-services-maps:19.2.0")
     implementation("org.maplibre.gl:android-sdk:11.8.0")
+    implementation("com.journeyapps:zxing-android-embedded:4.3.0")
+    implementation("com.google.zxing:core:3.5.3")
 }
