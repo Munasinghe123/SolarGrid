@@ -18,35 +18,35 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SolarGrid">
         <activity
-            android:name=".BookEnergySlot"
+            android:name=".booking.BookEnergySlot"
             android:exported="false" />
         <activity
-            android:name=".PowerStationSelection"
+            android:name=".station.PowerStationSelection"
             android:exported="false" />
         <activity
-            android:name=".ProcumerDashboard"
+            android:name=".dashboard.ProcumerDashboard"
             android:exported="false" />
         <activity
-            android:name=".GridOperatorDashboard"
+            android:name=".dashboard.GridOperatorDashboard"
             android:exported="false" />
         <activity
-            android:name=".GridOperatorPowerStationSelection"
+            android:name=".station.GridOperatorPowerStationSelection"
             android:exported="false" />
         <activity
-            android:name=".CaptureActivityPortrait"
+            android:name=".common.CaptureActivityPortrait"
             android:screenOrientation="portrait"
             android:stateNotNeeded="true"
             android:windowSoftInputMode="stateAlwaysHidden" />
         <activity
-            android:name=".RegisterActivity"
+            android:name=".auth.RegisterActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".auth.LoginActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".MainActivity"
+            android:name=".dashboard.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

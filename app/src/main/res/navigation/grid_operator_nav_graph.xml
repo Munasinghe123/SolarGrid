@@ -7,10 +7,10 @@
 
     <fragment
         android:id="@+id/nav_grid_operator_home"
-        android:name="com.example.solargrid.GridOperatorHomeFragment" />
+        android:name="com.example.solargrid.dashboard.GridOperatorHomeFragment" />
 
     <fragment
         android:id="@+id/nav_grid_operator_profile"
-        android:name="com.example.solargrid.ProfileFragment" />
+        android:name="com.example.solargrid.dashboard.ProfileFragment" />
 
 </navigation>
