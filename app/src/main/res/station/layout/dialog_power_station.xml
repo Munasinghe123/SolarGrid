@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="300dp"
+    android:layout_height="wrap_content"
+    android:background="@drawable/modal_bg">
+
+    <!-- Decorative Leaves on Left Side -->
+    <ImageView
+        android:layout_width="120dp"
+        android:layout_height="180dp"
+        android:layout_gravity="start|bottom"
+        android:layout_marginStart="-12dp"
+        android:layout_marginBottom="-10dp"
+        android:scaleType="fitStart"
+        android:alpha="0.80"
+        android:src="@drawable/reservations_decoration"
+        android:contentDescription="@null" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:padding="16dp">
+
+        <!-- Station Name -->
+        <TextView
+            android:id="@+id/stationTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Mahavali Sub"
+            android:textColor="#FFD21C"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:fontFamily="sans" />
+
+        <!-- Station Image -->
+        <FrameLayout
+            android:layout_width="268dp"
+            android:layout_height="125dp"
+            android:layout_marginTop="12dp">
+
+            <ImageView
+                android:id="@+id/stationImage"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/station"
+                android:clipToOutline="true"
+                android:outlineProvider="background"
+                android:contentDescription="Power station image" />
+
+        </FrameLayout>
+
+        <!-- Distance Information Pill (Centered) -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:background="@drawable/bg_distance_pill"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp">
+
+            <!-- Location Icon -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="⌖"
+                android:textColor="#FFD21C"
+                android:textSize="24sp" />
+
+            <!-- Distance Details -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Distance"
+                    android:textColor="#AAB5AE"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/stationDistance"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="10 km"
+                    android:textColor="#FFFFFF"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- Continue Button -->
+        <FrameLayout
+            android:id="@+id/continueButton"
+            android:layout_width="145dp"
+            android:layout_height="38dp"
+            android:layout_marginTop="16dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="@drawable/bg_energy_button">
+
+            <!-- Continue text -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="Continue"
+                android:textColor="#FFFFFF"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+        </FrameLayout>
+
+    </LinearLayout>
+
+</FrameLayout>

@@ -26,6 +26,18 @@ android {
             )
         }
     }
+    sourceSets {
+        getByName("main") {
+            res.srcDirs(
+                "src/main/res",
+                "src/main/res/common",
+                "src/main/res/auth",
+                "src/main/res/dashboard",
+                "src/main/res/station",
+                "src/main/res/booking"
+            )
+        }
+    }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
